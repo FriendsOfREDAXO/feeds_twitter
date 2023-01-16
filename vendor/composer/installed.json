@@ -1,0 +1,61 @@
+{
+    "packages": [
+        {
+            "name": "ricardoper/twitteroauth",
+            "version": "v2.1.6",
+            "version_normalized": "2.1.6.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ricardoper/TwitterOAuth.git",
+                "reference": "cbdd43db781f30a4f291b15b90ab08a30108d5d6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ricardoper/TwitterOAuth/zipball/cbdd43db781f30a4f291b15b90ab08a30108d5d6",
+                "reference": "cbdd43db781f30a4f291b15b90ab08a30108d5d6",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "ext-json": "*",
+                "lib-curl": "*",
+                "lib-openssl": "*",
+                "php": ">=5.3"
+            },
+            "time": "2016-05-27T19:06:33+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "TwitterOAuth\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ricardo Pereira",
+                    "email": "github@ricardopereira.es",
+                    "homepage": "http://ricardopereira.es"
+                }
+            ],
+            "description": "PHP library to communicate with Twitter OAuth API version 1.1",
+            "homepage": "https://github.com/ricardoper",
+            "keywords": [
+                "API v1.1",
+                "oauth",
+                "php",
+                "twitter"
+            ],
+            "support": {
+                "issues": "https://github.com/ricardoper/TwitterOAuth/issues",
+                "source": "https://github.com/ricardoper/TwitterOAuth/tree/v2"
+            },
+            "install-path": "../ricardoper/twitteroauth"
+        }
+    ],
+    "dev": true,
+    "dev-package-names": []
+}
