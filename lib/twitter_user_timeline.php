@@ -9,8 +9,8 @@
  * file that was distributed with this source code.
  */
 
-use TwitterOAuth\Auth\ApplicationOnlyAuth;
-use TwitterOAuth\Serializer\ObjectSerializer;
+use Abraham\TwitterOAuth\TwitterOAuth;
+
 
 class rex_feeds_stream_twitter_user_timeline extends rex_feeds_stream_abstract
 {
@@ -46,42 +46,31 @@ class rex_feeds_stream_twitter_user_timeline extends rex_feeds_stream_abstract
 
     public function fetch()
     {
-        $credentials = [];
-        $credentials = [
-            'consumer_key' => rex_config::get('feeds', 'twitter_consumer_key'),
-            'consumer_secret' => rex_config::get('feeds', 'twitter_consumer_secret'),
-            'oauth_token' => rex_config::get('feeds', 'twitter_oauth_token'),
-            'oauth_token_secret' => rex_config::get('feeds', 'twitter_oauth_token_secret'),
-        ];
 
-        $auth = new ApplicationOnlyAuth($credentials, array new ObjectSerializer());
-        $params = $this->typeParams;
-        $params['tweet_mode'] = 'extended';
 
-        $items = $auth->get('statuses/user_timeline', $params);
+        // Authenticate with Twitter
+        $consumerKey = rex_config::get('feeds_twitter', 'twitter_consumer_key');
+        $consumerSecret = rex_config::get('feeds_twitter', 'twitter_consumer_secret');
+        $accessToken = rex_config::get('feeds_twitter', 'twitter_oauth_token');
+        $accessTokenSecret = rex_config::get('feeds_twitter', 'twitter_oauth_token_secret');
+        $twitter = new TwitterOAuth($consumerKey, $consumerSecret, $accessToken, $accessTokenSecret);
 
-        foreach ($items as $twitterItem) {
-            $item = new rex_feeds_item($this->streamId, $twitterItem->id_str);
-            $item->setContentRaw($twitterItem->full_text);
-            $item->setContent(strip_tags($twitterItem->full_text));
+        // Retrieve the user's timeline posts
+        $user_timeline = $twitter->get('statuses/user_timeline', array('screen_name' => $this->typeParams['screen_name'], 'count' => '10'));
 
-            $item->setUrl('https://twitter.com/'.$twitterItem->user->screen_name.'/status/'.$twitterItem->id_str);
-            $item->setDate(new DateTime($twitterItem->created_at));
-
-            $item->setAuthor($twitterItem->user->name);
-            $item->setUsername($twitterItem->user->screen_name);
-            $item->setLanguage($twitterItem->lang);
-            $item->setRaw($twitterItem);
-
-            if (isset($twitterItem->entities->media)) {
-                $media = $twitterItem->entities->media;
-                if (isset($media[0])) {
-                    if ($media[0]->type == 'photo') {
-                        $item->setMedia($media[0]->media_url_https);
-                    }
-                }
+        foreach ($user_timeline as $post) {
+            $item = new rex_feeds_item($this->streamId, $post->id);
+            $item->setContentRaw($post->text);
+            $item->setContent(strip_tags($post->text));
+            $item->setDate(new DateTime($post->created_at));
+            $item->setUrl('https://twitter.com/' . $post->user->screen_name . '/status/' . $post->id_str);
+            $item->setAuthor($post->user->name);
+            $item->setUsername($post->user->screen_name);
+            $item->setLanguage($post->lang);
+            $item->setRaw($post);
+            if (isset($post->entities->media[0]) && $media = $post->entities->media[0]->media_url) {
+                $item->setMedia($media);
             }
-
             $this->updateCount($item);
             $item->save();
         }
