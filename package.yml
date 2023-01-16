@@ -9,7 +9,7 @@ page:
 
 pages: 
     feeds/twitter:    
-        title: 'translate:feeds_twitter_twitter'
+        title: 'translate:feeds_twitter'
         icon: rex-icon fa-twitter
         perm: admin
 
