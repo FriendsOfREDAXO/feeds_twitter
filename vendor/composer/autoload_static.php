@@ -7,16 +7,24 @@ namespace Composer\Autoload;
 class ComposerStaticInite24b4156d854115170d400f2a019ddcc
 {
     public static $prefixLengthsPsr4 = array (
-        'T' => 
+        'C' => 
         array (
-            'TwitterOAuth\\' => 13,
+            'Composer\\CaBundle\\' => 18,
+        ),
+        'A' => 
+        array (
+            'Abraham\\TwitterOAuth\\' => 21,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
-        'TwitterOAuth\\' => 
+        'Composer\\CaBundle\\' => 
         array (
-            0 => __DIR__ . '/..' . '/ricardoper/twitteroauth/src',
+            0 => __DIR__ . '/..' . '/composer/ca-bundle/src',
+        ),
+        'Abraham\\TwitterOAuth\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/abraham/twitteroauth/src',
         ),
     );
 
