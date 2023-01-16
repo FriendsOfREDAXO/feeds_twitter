@@ -1,0 +1,20 @@
+feeds_twitter = Twitter
+feeds_twitter_consumer_key = Twitter API key (Consumer Key)
+feeds_twitter_consumer_secret = Twitter API secret (Consumer Secret)
+feeds_twitter_count = Anzahl der Tweets
+feeds_twitter_entries = Einträge
+feeds_twitter_exclude_replies = Antworten ausschließen
+feeds_twitter_oauth_token = Twitter Access token
+feeds_twitter_oauth_token_secret = Twitter Access token secret
+feeds_twitter_result_type = Ergebnis
+feeds_twitter_result_type_mixed = Hole die neuesten und beliebtesten Tweets
+feeds_twitter_result_type_recent = Hole nur die neuesten Tweets
+feeds_twitter_result_type_popular = Hole nur die beliebtesten Tweets
+feeds_twitter_screen_name = Benutzername
+feeds_twitter_settings = Einstellungen
+
+feeds_twitter_user_timeline = Twitter :: Tweets vom Benutzer
+
+feeds_twitter_hashtag = Twitter :: Hashtag
+feeds_twitter_hashtag_q = Hashtag
+feeds_twitter_hashtag_with_prefix = Hashtag mit # eingeben
