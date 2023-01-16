@@ -19,29 +19,29 @@ if ($func == 'update') {
         ['twitter_oauth_token_secret', 'string'],
     ]));
 
-    echo \rex_view::success($this->i18n('settings_saved'));
+    echo \rex_view::success($this->i18n('feeds_settings_saved'));
 }
 
 $content = '';
 
 $formElements = [];
 $n = [];
-$n['label'] = '<label for="consumer-token">' . $this->i18n('twitter_consumer_key') . '</label>';
+$n['label'] = '<label for="consumer-token">' . $this->i18n('feeds_twitter_consumer_key') . '</label>';
 $n['field'] = '<input class="form-control" type="text" id="consumer-token" name="settings[twitter_consumer_key]" value="' . htmlspecialchars($this->getConfig('twitter_consumer_key') ?? '') . '" />';
 $formElements[] = $n;
 
 $n = [];
-$n['label'] = '<label for="consumer-secret">' . $this->i18n('twitter_consumer_secret') . '</label>';
+$n['label'] = '<label for="consumer-secret">' . $this->i18n('feeds_twitter_consumer_secret') . '</label>';
 $n['field'] = '<input class="form-control" type="text" id="consumer-secret" name="settings[twitter_consumer_secret]" value="' . htmlspecialchars($this->getConfig('twitter_consumer_secret') ?? '') . '" />';
 $formElements[] = $n;
 
 $n = [];
-$n['label'] = '<label for="oauth-token">' . $this->i18n('twitter_oauth_token') . '</label>';
+$n['label'] = '<label for="oauth-token">' . $this->i18n('feeds_twitter_oauth_token') . '</label>';
 $n['field'] = '<input class="form-control" type="text" id="oauth-token" name="settings[twitter_oauth_token]" value="' . htmlspecialchars($this->getConfig('twitter_oauth_token') ?? '') . '" />';
 $formElements[] = $n;
 
 $n = [];
-$n['label'] = '<label for="oauth-token-secret">' . $this->i18n('twitter_oauth_token_secret') . '</label>';
+$n['label'] = '<label for="oauth-token-secret">' . $this->i18n('feeds_twitter_oauth_token_secret') . '</label>';
 $n['field'] = '<input class="form-control" type="text" id="oauth-token-secret" name="settings[twitter_oauth_token_secret]" value="' . htmlspecialchars($this->getConfig('twitter_oauth_token_secret') ?? '') . '" />';
 $formElements[] = $n;
 
