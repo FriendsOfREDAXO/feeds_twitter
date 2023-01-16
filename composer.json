@@ -1,0 +1,5 @@
+{
+    "require": {
+        "ricardoper/twitteroauth": "^2.1.6"
+    }
+}
