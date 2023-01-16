@@ -56,7 +56,7 @@ class rex_feeds_stream_twitter_user_timeline extends rex_feeds_stream_abstract
         $twitter = new TwitterOAuth($consumerKey, $consumerSecret, $accessToken, $accessTokenSecret);
 
         // Retrieve the user's timeline posts
-        $user_timeline = $twitter->get('statuses/user_timeline', array('screen_name' => $this->typeParams['screen_name'], 'count' => '10'));
+        $user_timeline = $twitter->get('statuses/user_timeline', array('screen_name' => $this->typeParams['screen_name'], 'count' => '20'));
 
         foreach ($user_timeline as $post) {
             $item = new rex_feeds_item($this->streamId, $post->id);
