@@ -14,7 +14,3 @@ feeds_twitter_screen_name = Benutzername
 feeds_twitter_settings = Einstellungen
 
 feeds_twitter_user_timeline = Twitter :: Tweets vom Benutzer
-
-feeds_twitter_hashtag = Twitter :: Hashtag
-feeds_twitter_hashtag_q = Hashtag
-feeds_twitter_hashtag_with_prefix = Hashtag mit # eingeben
