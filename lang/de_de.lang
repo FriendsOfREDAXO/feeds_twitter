@@ -11,6 +11,6 @@ feeds_twitter_result_type_mixed = Hole die neuesten und beliebtesten Tweets
 feeds_twitter_result_type_recent = Hole nur die neuesten Tweets
 feeds_twitter_result_type_popular = Hole nur die beliebtesten Tweets
 feeds_twitter_screen_name = Benutzername
-feeds_twitter_settings = Einstellungen
+feeds_twitter_twitter_settings = Einstellungen
 
 feeds_twitter_user_timeline = Twitter :: Tweets vom Benutzer
