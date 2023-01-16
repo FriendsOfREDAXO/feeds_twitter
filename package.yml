@@ -3,6 +3,17 @@ version: '1.0.0-dev'
 author: Friends Of REDAXO
 supportpage: https://github.com/FriendsOfREDAXO/feeds_twitter
 
+
+page:
+    hidden: true
+
+pages: 
+    feeds/twitter:    
+        title: 'translate:feeds_twitter'
+        icon: rex-icon fa-twitter
+        perm: admin
+
+
 requires:
     redaxo: '^5.14'
     php:

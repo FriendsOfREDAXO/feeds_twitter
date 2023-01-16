@@ -46,6 +46,7 @@ class rex_feeds_stream_twitter_user_timeline extends rex_feeds_stream_abstract
 
     public function fetch()
     {
+        $credentials = [];
         $credentials = [
             'consumer_key' => rex_config::get('feeds', 'twitter_consumer_key'),
             'consumer_secret' => rex_config::get('feeds', 'twitter_consumer_secret'),
@@ -53,7 +54,7 @@ class rex_feeds_stream_twitter_user_timeline extends rex_feeds_stream_abstract
             'oauth_token_secret' => rex_config::get('feeds', 'twitter_oauth_token_secret'),
         ];
 
-        $auth = new ApplicationOnlyAuth($credentials, new ObjectSerializer());
+        $auth = new ApplicationOnlyAuth($credentials, array new ObjectSerializer());
         $params = $this->typeParams;
         $params['tweet_mode'] = 'extended';
 
